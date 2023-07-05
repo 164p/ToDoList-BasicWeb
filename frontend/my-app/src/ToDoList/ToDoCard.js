@@ -40,6 +40,7 @@ const ToDoCard = (props) => {
       .catch((err) => {
         console.log('Error form ShowItemDetails_deleteClick');
       });
+      window.location.reload()
   };
 
   const onChange = (e) => {
@@ -55,10 +56,13 @@ const ToDoCard = (props) => {
       .put(`http://localhost:4000/api/tdl/${id}`, data)
       .then((res) => {
         navigate('/');
+
       })
       .catch((err) => {
         console.log('Error in UpdateBookInfo!');
       });
+      setIsOpen(!isOpen);
+      window.location.reload()
   };
   
 
@@ -71,7 +75,7 @@ const ToDoCard = (props) => {
               <h1>{tdl.name}</h1>
               <input
                 type='text'
-                placeholder='Game Console Name'
+                placeholder='Name...'
                 name='name'
                 className='form-control'
                 onChange={onChange}

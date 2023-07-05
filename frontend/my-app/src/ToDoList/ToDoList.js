@@ -37,11 +37,12 @@ function ShowToDoList() {
       .catch((err) => {
         console.log('Error in CreateItem!');
       });
+      window.location.reload()
   };
 
   const tdlList =
     tdl_l.length === 0
-      ? 'there is no book record!'
+      ? 'No thing to do'
       : tdl_l.map((tdls, k) => <ToDoCard tdl={tdls} key={k} />);
 
   return (
@@ -50,7 +51,7 @@ function ShowToDoList() {
       <form noValidate onSubmit={onSubmit}>
       <input
         type='text'
-        placeholder='Game Console Name'
+        placeholder='Name...'
         name='name'
         className='form-control'
         value={tdl.name}
